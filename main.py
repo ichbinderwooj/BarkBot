@@ -16,9 +16,11 @@ bot = commands.Bot(
 
 @bot.event
 async def on_ready():
-	print("Bot is ready!")
+  activity = discord.Game(name="!help")
+  await bot.change_presence(status=discord.Status.online, activity=activity)
+  print("Bot is ready!")
 
-@commands.command(name="server", help="Gets support server link")
+@bot.command(name="server", help="Gets support server link")
 async def server(ctx):
   await ctx.send("https://discord.gg/Tayz2DWE2D")
 
